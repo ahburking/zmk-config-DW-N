@@ -1,3 +1,4 @@
+name: DW-N
 build:
   settings:
     board_root: .

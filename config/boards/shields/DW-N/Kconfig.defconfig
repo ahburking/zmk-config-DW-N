@@ -1,0 +1,6 @@
+if SHIELD_DW-N
+
+config ZMK_KEYBOARD_NAME
+    default "dw-n"
+
+endif

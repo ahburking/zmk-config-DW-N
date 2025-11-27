@@ -1,0 +1,2 @@
+config SHIELD_DW-N
+    def_bool $(shields_list_contains,dw-n)

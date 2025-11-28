@@ -1,30 +1,44 @@
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
-#define DEFAULT_LAYER   0
-#define A_LAYER   1
 
-/ {
+/ { 
+   
     keymap {
         compatible = "zmk,keymap";
-
-        DEFAULT_LAYER {
-            bindings = <
-&kp N7     &kp N8     &kp N9     &kp EQUAL           &kp C_VOLUME_UP
-&kp N4     &kp N5     &kp N6     &kp MINUS           &kp C_VOLUME_DOWN
-&kp N1     &kp N2     &kp N3     &kp KP_MULTIPLY     &mo 1
-&kp N0     &kp RET                &kp KP_DIVIDE      &kp RSHIFT
+            
+        base_layer {
+            display-name = "base_layer";
+            bindings = < 
+                &kp N7     &kp N8     &kp N9     &kp EQUAL           &kp C_VOLUME_UP
+                &kp N4     &kp N5     &kp N6     &kp MINUS           &kp C_VOLUME_DOWN
+                &kp N1     &kp N2     &kp N3     &kp KP_MULTIPLY     &mo 1
+                &kp N0     &kp RET                &kp KP_DIVIDE      &kp RSHIFT
             >;
+        }; 
+        
+        layer_1 {
+            display-name = "layer_1";
+            bindings = <
+                &sys_reset            &none            &none            &none     &bt BT_CLR_ALL
+                &none                 &none            &none            &none     &none
+                &bt BT_SEL 1          &bt BT_SEL 2     &bt BT_SEL 3     &none     &none
+                &bt BT_SEL 0          &none                             &none     &none 
+            >;
+        };  
+
+        extra_layer_2 {
+            status = "reserved";
+        };
+        
+        extra_layer_3 {
+            status = "reserved";
+        };
+        
+        extra_layer_4 {
+            status = "reserved";
         };
 
-        A_LAYER {
-            bindings = <
-&sys_reset            &none            &none            &none     &bt BT_CLR_ALL
-&none                 &none            &none            &none     &none
-&bt BT_SEL 1          &bt BT_SEL 2     &bt BT_SEL 3     &none     &none
-&bt BT_SEL 0          &none                             &none     &none 
-            >;
-        };
     };
 };
